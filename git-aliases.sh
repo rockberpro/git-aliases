@@ -1,6 +1,5 @@
 #!/bin/bash
 
-git config --global alias.ad "add"
 git config --global alias.ad "add" 
 git config --global alias.bl "blame"
 git config --global alias.br "branch"
