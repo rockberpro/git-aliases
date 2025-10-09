@@ -33,6 +33,7 @@ For example:
 | Alias   | Original Command         |
 |---------|-------------------------|
 | ad      | add                     |
+| adu     | add -u                  |
 | bl      | blame                   |
 | br      | branch                  |
 | cl      | clean                   |
@@ -40,6 +41,7 @@ For example:
 | cm      | commit                  |
 | ck      | checkout                |
 | df      | diff                    |
+| dfc     | diff --cached           |
 | ds      | describe                |
 | ft      | fetch                   |
 | gp      | grep                    |
@@ -53,6 +55,7 @@ For example:
 | psh     | push origin HEAD        |
 | rb      | rebase                  |
 | rs      | restore                 |
+| rss     | restore --staged        |
 | rst     | reset                   |
 | rt      | remote                  |
 | rv      | revert                  |
