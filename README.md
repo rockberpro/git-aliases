@@ -39,6 +39,7 @@ For example:
 | cl      | clean                   |
 | cln     | clone                   |
 | cm      | commit                  |
+| cmm     | commit -m               |
 | ck      | checkout                |
 | df      | diff                    |
 | dfc     | diff --cached           |
