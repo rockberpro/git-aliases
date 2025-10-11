@@ -44,6 +44,7 @@ For example:
 | dfc     | diff --cached           |
 | ds      | describe                |
 | ft      | fetch                   |
+| ftp     | fetch --prune           |
 | gp      | grep                    |
 | in      | init                    |
 | lg      | log                     |
