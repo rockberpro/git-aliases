@@ -64,6 +64,7 @@ For example:
 | st      | status                  |
 | sth     | stash                   |
 | sw      | switch                  |
+| swc     | switch -c               |
 | tg      | tag                     |
 
 ## 💡 Tip
