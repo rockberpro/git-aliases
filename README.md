@@ -33,6 +33,7 @@ For example:
 | Alias   | Original Command         |
 |---------|-------------------------|
 | ad      | add                     |
+| ada     | add .                   |
 | adu     | add -u                  |
 | bl      | blame                   |
 | br      | branch                  |
