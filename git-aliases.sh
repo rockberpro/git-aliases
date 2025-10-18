@@ -1,6 +1,7 @@
 #!/bin/bash
 
 git config --global alias.ad "add" 
+git config --global alias.ada "add ."
 git config --global alias.adu "add -u"
 git config --global alias.bl "blame"
 git config --global alias.br "branch"
@@ -26,7 +27,7 @@ git config --global alias.ps "push"
 git config --global alias.psh "push origin HEAD"
 git config --global alias.rb "rebase"
 git config --global alias.rs "restore"
-git config --global alias.rss "restore --staged"
+git config --global alias.rss "restore --staged ."
 git config --global alias.rst "reset"
 git config --global alias.rt "remote"
 git config --global alias.rv "revert"
