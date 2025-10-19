@@ -39,6 +39,7 @@ For example:
 | br      | branch                  |
 | brd     | branch --delete         |
 | cl      | clean                   |
+| clf     | clean --force           |
 | cln     | clone                   |
 | cm      | commit                  |
 | cmf     | commit --fixup          |
