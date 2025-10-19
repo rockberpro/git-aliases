@@ -59,6 +59,7 @@ For example:
 | psh     | push origin HEAD        |
 | rb      | rebase                  |
 | rs      | restore                 |
+| rsa     | restore .               |
 | rss     | restore --staged        |
 | rst     | reset                   |
 | rt      | remote                  |
