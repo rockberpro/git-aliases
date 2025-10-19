@@ -37,6 +37,7 @@ For example:
 | adu     | add -u                  |
 | bl      | blame                   |
 | br      | branch                  |
+| brd     | branch --delete         |
 | cl      | clean                   |
 | cln     | clone                   |
 | cm      | commit                  |
