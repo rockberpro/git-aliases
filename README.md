@@ -34,7 +34,7 @@ For example:
 |---------|-------------------------|
 | ad      | add                     |
 | ada     | add .                   |
-| adu     | add -u                  |
+| adu     | add --update            |
 | bl      | blame                   |
 | br      | branch                  |
 | brd     | branch --delete         |
@@ -43,7 +43,7 @@ For example:
 | cln     | clone                   |
 | cm      | commit                  |
 | cmf     | commit --fixup          |
-| cmm     | commit -m               |
+| cmm     | commit --message        |
 | ck      | checkout                |
 | df      | diff                    |
 | dfc     | diff --cached           |
@@ -72,7 +72,7 @@ For example:
 | st      | status                  |
 | sth     | stash                   |
 | sw      | switch                  |
-| swc     | switch -c               |
+| swc     | switch --create         |
 | tg      | tag                     |
 
 ## 💡 Tip
