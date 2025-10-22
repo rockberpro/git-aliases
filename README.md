@@ -54,6 +54,7 @@ For example:
 | in      | init                    |
 | lg      | log                     |
 | lgh     | log HEAD                |
+| lgp     | log --patch             |
 | mg      | merge                   |
 | pl      | pull                    |
 | plh     | pull origin HEAD        |
