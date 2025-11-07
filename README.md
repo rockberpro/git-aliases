@@ -41,6 +41,7 @@ For example:
 | cl      | clean                   |
 | clf     | clean --force           |
 | cln     | clone                   |
+| chp     | cherry-pick             |
 | cm      | commit                  |
 | cmf     | commit --fixup          |
 | cmm     | commit --message        |
