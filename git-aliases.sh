@@ -1,11 +1,12 @@
 #!/bin/bash
 
-git config --global alias.ad "add" 
+git config --global alias.ad "add"
 git config --global alias.ada "add ."
 git config --global alias.adu "add --update"
 git config --global alias.bl "blame"
 git config --global alias.br "branch"
 git config --global alias.brd "branch --delete"
+git config --global alias.brl "branch --list"
 git config --global alias.cl "clean"
 git config --global alias.clf "clean --force"
 git config --global alias.cln "clone"
