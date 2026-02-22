@@ -1,11 +1,11 @@
 # 🚀 Make Your Life Easier with Git Aliases
 
-Tired of typing long Git commands? This script sets up handy Git aliases to speed up your workflow!  
+Tired of typing long Git commands? This script sets up handy Git aliases to speed up your workflow!
 Run it once and enjoy short, memorable commands for your daily Git tasks.
 
 ## ✨ What does this script do?
 
-It adds a bunch of useful aliases to your global Git config, making common commands much faster.  
+It adds a bunch of useful aliases to your global Git config, making common commands much faster.
 For example:
 
 - `git st` → `git status`
@@ -30,51 +30,52 @@ For example:
 
 ## 📋 Alias list
 
-| Alias   | Original Command         |
-|---------|-------------------------|
-| ad      | add                     |
-| ada     | add .                   |
-| adu     | add --update            |
-| bl      | blame                   |
-| br      | branch                  |
-| brd     | branch --delete         |
-| cl      | clean                   |
-| clf     | clean --force           |
-| cln     | clone                   |
-| chp     | cherry-pick             |
-| cm      | commit                  |
-| cmf     | commit --fixup          |
-| cmm     | commit --message        |
-| ck      | checkout                |
-| df      | diff                    |
-| dfc     | diff --cached           |
-| ds      | describe                |
-| ft      | fetch                   |
-| ftp     | fetch --prune           |
-| gp      | grep                    |
-| in      | init                    |
-| lg      | log                     |
-| lgh     | log HEAD                |
-| lgp     | log --patch             |
-| mg      | merge                   |
-| pl      | pull                    |
-| plh     | pull origin HEAD        |
-| ps      | push                    |
-| psh     | push origin HEAD        |
-| rb      | rebase                  |
-| rs      | restore                 |
-| rsa     | restore .               |
-| rss     | restore --staged        |
-| rst     | reset                   |
-| rt      | remote                  |
-| rv      | revert                  |
-| sb      | branch --show-current   |
-| sh      | show                    |
-| st      | status                  |
-| sth     | stash                   |
-| sw      | switch                  |
-| swc     | switch --create         |
-| tg      | tag                     |
+| Alias | Original Command      |
+| ----- | --------------------- |
+| ad    | add                   |
+| ada   | add .                 |
+| adu   | add --update          |
+| bl    | blame                 |
+| br    | branch                |
+| brd   | branch --delete       |
+| brd   | branch --list         |
+| cl    | clean                 |
+| clf   | clean --force         |
+| cln   | clone                 |
+| chp   | cherry-pick           |
+| cm    | commit                |
+| cmf   | commit --fixup        |
+| cmm   | commit --message      |
+| ck    | checkout              |
+| df    | diff                  |
+| dfc   | diff --cached         |
+| ds    | describe              |
+| ft    | fetch                 |
+| ftp   | fetch --prune         |
+| gp    | grep                  |
+| in    | init                  |
+| lg    | log                   |
+| lgh   | log HEAD              |
+| lgp   | log --patch           |
+| mg    | merge                 |
+| pl    | pull                  |
+| plh   | pull origin HEAD      |
+| ps    | push                  |
+| psh   | push origin HEAD      |
+| rb    | rebase                |
+| rs    | restore               |
+| rsa   | restore .             |
+| rss   | restore --staged      |
+| rst   | reset                 |
+| rt    | remote                |
+| rv    | revert                |
+| sb    | branch --show-current |
+| sh    | show                  |
+| st    | status                |
+| sth   | stash                 |
+| sw    | switch                |
+| swc   | switch --create       |
+| tg    | tag                   |
 
 ## 💡 Tip
 
@@ -83,4 +84,3 @@ Feel free to edit the script to add or remove aliases as you like!
 ---
 
 Like it? Make your Git life easier and share with your team! 😎
-
