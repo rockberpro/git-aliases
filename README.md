@@ -36,7 +36,10 @@ chmod +x git-aliases.sh
 | br    | branch                                      |
 | brd   | branch --delete                             |
 | brl   | branch --list                               |
-| cl    | clean                                       |
+| cfg   | config                                      |
+| cfgl  | config --list                               |
+| cln   | clean                                       |
+| clf   | clean --force                               |
 | clf   | clean --force                               |
 | clo   | clone                                       |
 | cha   | cherry-pick --abort                         |
