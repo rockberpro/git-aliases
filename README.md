@@ -1,86 +1,102 @@
-# 🚀 Make Your Life Easier with Git Aliases
+# 🚀 Torne o Git mais rápido com aliases
 
-Tired of typing long Git commands? This script sets up handy Git aliases to speed up your workflow!
-Run it once and enjoy short, memorable commands for your daily Git tasks.
+Este repositório aplica aliases Git úteis para agilizar seu fluxo de trabalho. Execute o script uma vez e passe a usar comandos curtos e memoráveis.
 
-## ✨ What does this script do?
+## ✨ O que este script faz
 
-It adds a bunch of useful aliases to your global Git config, making common commands much faster.
-For example:
+O script adiciona aliases ao seu `git config --global`, encurtando comandos comuns.
+
+Exemplos rápidos:
 
 - `git st` → `git status`
 - `git cm` → `git commit`
 - `git pl` → `git pull`
-- `git ps` → `git push`
-- `git br` → `git branch`
-- ...and many more!
 
-## 🛠️ How to use
+## 🛠️ Como usar
 
-1. **Download or clone this repository**
-2. Make the script executable:
-   ```bash
-   chmod +x git-aliases.sh
-   ```
-3. Run the script:
-   ```bash
-   ./git-aliases.sh
-   ```
-4. Done! Your Git commands are now much faster 🚀
+1. Clone ou baixe este repositório
+2. Torne o script executável:
+```bash
+chmod +x git-aliases.sh
+```
+3. Execute:
+```bash
+./git-aliases.sh
+```
+4. Pronto — os aliases estarão no seu `~/.gitconfig` global.
 
-## 📋 Alias list
+## 📋 Lista de aliases (definidos em `git-aliases.sh`)
 
-| Alias | Original Command      |
-| ----- | --------------------- |
-| ad    | add                   |
-| ada   | add .                 |
-| adu   | add --update          |
-| bl    | blame                 |
-| br    | branch                |
-| brd   | branch --delete       |
-| brd   | branch --list         |
-| cl    | clean                 |
-| clf   | clean --force         |
-| cln   | clone                 |
-| chp   | cherry-pick           |
-| cm    | commit                |
-| cmf   | commit --fixup        |
-| cmm   | commit --message      |
-| ck    | checkout              |
-| df    | diff                  |
-| dfc   | diff --cached         |
-| ds    | describe              |
-| ft    | fetch                 |
-| ftp   | fetch --prune         |
-| gp    | grep                  |
-| in    | init                  |
-| lg    | log                   |
-| lgh   | log HEAD              |
-| lgp   | log --patch           |
-| mg    | merge                 |
-| pl    | pull                  |
-| plh   | pull origin HEAD      |
-| ps    | push                  |
-| psh   | push origin HEAD      |
-| rb    | rebase                |
-| rs    | restore               |
-| rsa   | restore .             |
-| rss   | restore --staged      |
-| rst   | reset                 |
-| rt    | remote                |
-| rv    | revert                |
-| sb    | branch --show-current |
-| sh    | show                  |
-| st    | status                |
-| sth   | stash                 |
-| sw    | switch                |
-| swc   | switch --create       |
-| tg    | tag                   |
+| Alias | Comando original                            |
+| ----- | ------------------------------------------- |
+| ad    | add                                         |
+| ada   | add .                                       |
+| adu   | add --update                                |
+| bl    | blame                                       |
+| br    | branch                                      |
+| brd   | branch --delete                             |
+| brl   | branch --list                               |
+| cl    | clean                                       |
+| clf   | clean --force                               |
+| clo   | clone                                       |
+| cha   | cherry-pick --abort                         |
+| chc   | cherry-pick --continue                      |
+| chp   | cherry-pick                                 |
+| cm    | commit                                      |
+| cmf   | commit --fixup                              |
+| cma   | commit --amend                              |
+| cmn   | commit --amend --no-edit                    |
+| cmm   | commit --message                            |
+| ck    | checkout                                    |
+| df    | diff                                        |
+| dfc   | diff --cached                               |
+| ds    | describe                                    |
+| ft    | fetch                                       |
+| ftp   | fetch --prune                               |
+| gp    | grep                                        |
+| in    | init                                        |
+| lg    | log                                         |
+| lgo   | log --graph --oneline --decorate --all      |
+| lgh   | log HEAD                                    |
+| lgp   | log --patch                                 |
+| mg    | merge                                       |
+| mga   | merge --abort                               |
+| mgc   | merge --continue                            |
+| mgs   | merge --squash                              |
+| pl    | pull                                        |
+| plh   | pull origin HEAD                            |
+| ps    | push                                        |
+| psf   | push --force-with-lease                     |
+| psh   | push origin HEAD                            |
+| pshf  | push origin HEAD --force-with-lease         |
+| rb    | rebase                                      |
+| rba   | rebase --abort                              |
+| rbc   | rebase --continue                           |
+| rbi   | rebase --interactive                        |
+| rs    | restore                                     |
+| rsa   | restore .                                   |
+| rss   | restore --staged                            |
+| rst   | reset                                       |
+| rt    | remote                                      |
+| rv    | revert                                      |
+| scb   | branch --show-current                       |
+| sh    | show                                        |
+| st    | status                                      |
+| sts   | status --short --branch                     |
+| sth   | stash                                       |
+| sthd  | stash drop                                  |
+| sthl  | stash list                                  |
+| sthp  | stash pop                                   |
+| stha  | stash apply                                 |
+| sths  | stash show                                  |
+| sw    | switch                                      |
+| swc   | switch --create                             |
+| tg    | tag                                         |
 
-## 💡 Tip
+## 💡 Dica
 
-Feel free to edit the script to add or remove aliases as you like!
+Edite `git-aliases.sh` para adicionar, remover ou ajustar aliases conforme suas preferências.
 
 ---
 
-Like it? Make your Git life easier and share with your team! 😎
+Arquivo do script: [git-aliases.sh](git-aliases.sh)
