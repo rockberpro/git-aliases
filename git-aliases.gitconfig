@@ -1,0 +1,107 @@
+# ==============================================================================
+# LOGICAL GIT ALIASES (LGA)
+# A consistent, prefix-based dialect for high-productivity Git usage.
+# Logic: [Command Prefix (2 chars)] + [Action Suffix (1-2 chars)]
+#
+# Install via script:
+#   curl -sL https://raw.githubusercontent.com/rockberpro/git-aliases/main/setup.sh | bash
+#
+# Install via gitconfig include:
+#   git config --global include.path /path/to/git-aliases.gitconfig
+#   or add manually to ~/.gitconfig:
+#   [include]
+#       path = /path/to/git-aliases.gitconfig
+# ==============================================================================
+
+[alias]
+    # --- ADD (ad) ---
+    ad  = add
+    ada = add .
+    adu = add --update
+
+    # --- BRANCH (br) ---
+    br  = branch
+    brd = branch --delete
+    brl = branch --list
+    scb = branch --show-current
+
+    # --- COMMIT (cm) ---
+    cm  = commit
+    cmf = commit --fixup
+    cma = commit --amend
+    cmn = commit --amend --no-edit
+    cmm = commit --message
+
+    # --- CHECKOUT / SWITCH / RESTORE ---
+    ck  = checkout
+    sw  = switch
+    swc = switch --create
+    rs  = restore
+    rsa = restore .
+    rss = restore --staged
+
+    # --- DIFF (df) ---
+    df   = diff
+    dfc  = diff --cached
+    dfw  = diff --ignore-all-space
+    dfwd = diff --word-diff
+
+    # --- FETCH / PULL / PUSH ---
+    ft   = fetch
+    ftp  = fetch --prune
+    pl   = pull
+    plh  = pull origin HEAD
+    ps   = push
+    psf  = push --force-with-lease
+    psh  = push origin HEAD
+    pshf = push origin HEAD --force-with-lease
+
+    # --- LOG / SHOW ---
+    lg  = log
+    lgh = log HEAD
+    lgp = log --patch
+    lgo = log --graph --oneline --decorate --all
+    sh  = show --patch
+
+    # --- MERGE / REBASE ---
+    mg  = merge
+    mga = merge --abort
+    mgc = merge --continue
+    mgs = merge --squash
+    rb  = rebase
+    rba = rebase --abort
+    rbc = rebase --continue
+    rbi = rebase --interactive
+    rbo = rebase --onto
+
+    # --- STASH (sth) ---
+    sth  = stash
+    sthc = stash clear
+    sthd = stash drop
+    sthl = stash list
+    stho = stash pop
+    sthp = stash push
+    stha = stash apply
+    sths = stash show --patch
+
+    # --- STATUS (st) ---
+    st  = status
+    sts = status --short --branch
+
+    # --- UTILS ---
+    bl   = blame
+    cfg  = config
+    cfgl = config --list
+    cln  = clean
+    clf  = clean --force
+    clo  = clone
+    cha  = cherry-pick --abort
+    chc  = cherry-pick --continue
+    chp  = cherry-pick
+    ds   = describe
+    gp   = grep
+    in   = init
+    rt   = remote
+    rv   = revert
+    tg   = tag
+    rst  = reset
