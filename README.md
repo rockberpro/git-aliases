@@ -12,20 +12,15 @@ Exemplos rápidos:
 - `git cm` → `git commit`
 - `git pl` → `git pull`
 
-## 🛠️ Como usar
+## 🛠️ Como instalar
 
-1. Clone ou baixe este repositório
-2. Torne o script executável:
 ```bash
-chmod +x git-aliases.sh
+curl -sL https://raw.githubusercontent.com/rockberpro/git-aliases/main/setup.sh | bash
 ```
-3. Execute:
-```bash
-./git-aliases.sh
-```
-4. Pronto — os aliases estarão no seu `~/.gitconfig` global.
 
-## 📋 Lista de aliases (definidos em `git-aliases.sh`)
+O script baixa `git-aliases.gitconfig` para `~/.git-aliases.gitconfig` e adiciona automaticamente o `[include]` no seu `~/.gitconfig` global.
+
+## 📋 Lista de aliases
 
 | Alias | Comando original                            |
 | ----- | ------------------------------------------- |
@@ -103,8 +98,8 @@ chmod +x git-aliases.sh
 
 ## 💡 Dica
 
-Edite `git-aliases.sh` para adicionar, remover ou ajustar aliases conforme suas preferências.
+Edite `git-aliases.gitconfig` para adicionar, remover ou ajustar aliases conforme suas preferências.
 
 ---
 
-Arquivo do script: [git-aliases.sh](git-aliases.sh)
+[setup.sh](setup.sh) · [git-aliases.gitconfig](git-aliases.gitconfig)
