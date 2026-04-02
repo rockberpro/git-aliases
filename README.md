@@ -92,7 +92,7 @@ chmod +x git-aliases.sh
 | stho  | stash pop                                   |
 | sthp  | stash push                                  |
 | stha  | stash apply                                 |
-| sths  | stash show                                  |
+| sths  | stash show --patch                          |
 | sw    | switch                                      |
 | swc   | switch --create                             |
 | tg    | tag                                         |
