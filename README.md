@@ -89,7 +89,8 @@ chmod +x git-aliases.sh
 | sth   | stash                                       |
 | sthd  | stash drop                                  |
 | sthl  | stash list                                  |
-| sthp  | stash pop                                   |
+| stho  | stash pop                                   |
+| sthp  | stash push                                  |
 | stha  | stash apply                                 |
 | sths  | stash show                                  |
 | sw    | switch                                      |
