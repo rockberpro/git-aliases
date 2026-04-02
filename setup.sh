@@ -6,7 +6,7 @@ GITCONFIG_URL="https://raw.githubusercontent.com/rockberpro/git-aliases/main/git
 INSTALL_PATH="$HOME/.git-aliases.gitconfig"
 
 HELP_URL="https://raw.githubusercontent.com/rockberpro/git-aliases/main/git-aliases-help.sh"
-HELP_PATH="$HOME/git-aliases-help.sh"
+HELP_PATH="$HOME/.git-aliases-help.sh"
 
 curl -sL "$GITCONFIG_URL" -o "$INSTALL_PATH"
 
