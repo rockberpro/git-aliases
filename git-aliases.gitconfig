@@ -105,3 +105,4 @@
     rv   = revert
     tg   = tag
     rst  = reset
+    sga  = !~/help.sh
