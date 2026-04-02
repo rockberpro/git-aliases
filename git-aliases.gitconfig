@@ -105,4 +105,4 @@
     rv   = revert
     tg   = tag
     rst  = reset
-    sga  = !~/help.sh
+    sga  = !~/git-aliases-help.sh
