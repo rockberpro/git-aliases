@@ -1,28 +1,24 @@
-# 🚀 Torne o Git mais rápido com aliases
+# 🚀 Make Git faster with aliases
 
-Este repositório aplica aliases Git úteis para agilizar seu fluxo de trabalho. Execute o script uma vez e passe a usar comandos curtos e memoráveis.
+A consistent, prefix-based dialect for high-productivity Git usage.
 
-## ✨ O que este script faz
-
-O script adiciona aliases ao seu `git config --global`, encurtando comandos comuns.
-
-Exemplos rápidos:
+Examples:
 
 - `git st` → `git status`
 - `git cm` → `git commit`
 - `git pl` → `git pull`
 
-## 🛠️ Como instalar
+## 🛠️ Install
 
 ```bash
 curl -sL https://raw.githubusercontent.com/rockberpro/git-aliases/main/setup.sh | bash
 ```
 
-O script baixa `git-aliases.gitconfig` para `~/.git-aliases.gitconfig` e adiciona automaticamente o `[include]` no seu `~/.gitconfig` global.
+The script downloads `git-aliases.gitconfig` to `~/.git-aliases.gitconfig` and automatically adds the `[include]` to your global `~/.gitconfig`.
 
-## 📋 Lista de aliases
+## 📋 Alias list
 
-| Alias | Comando original                            |
+| Alias | Command                                     |
 | ----- | ------------------------------------------- |
 | ad    | add                                         |
 | ada   | add .                                       |
@@ -34,7 +30,6 @@ O script baixa `git-aliases.gitconfig` para `~/.git-aliases.gitconfig` e adicion
 | cfg   | config                                      |
 | cfgl  | config --list                               |
 | cln   | clean                                       |
-| clf   | clean --force                               |
 | clf   | clean --force                               |
 | clo   | clone                                       |
 | cha   | cherry-pick --abort                         |
@@ -96,9 +91,9 @@ O script baixa `git-aliases.gitconfig` para `~/.git-aliases.gitconfig` e adicion
 | swc   | switch --create                             |
 | tg    | tag                                         |
 
-## 💡 Dica
+## 💡 Tip
 
-Edite `git-aliases.gitconfig` para adicionar, remover ou ajustar aliases conforme suas preferências.
+Edit `git-aliases.gitconfig` to add, remove, or adjust aliases to your preference.
 
 ---
 
