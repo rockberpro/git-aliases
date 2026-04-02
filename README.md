@@ -53,6 +53,8 @@ chmod +x git-aliases.sh
 | ck    | checkout                                    |
 | df    | diff                                        |
 | dfc   | diff --cached                               |
+| dfw   | diff --ignore-all-space                     |
+| dfwd  | diff --word-diff                            |
 | ds    | describe                                    |
 | ft    | fetch                                       |
 | ftp   | fetch --prune                               |
@@ -76,6 +78,7 @@ chmod +x git-aliases.sh
 | rba   | rebase --abort                              |
 | rbc   | rebase --continue                           |
 | rbi   | rebase --interactive                        |
+| rbo   | rebase --onto                               |
 | rs    | restore                                     |
 | rsa   | restore .                                   |
 | rss   | restore --staged                            |
@@ -87,6 +90,7 @@ chmod +x git-aliases.sh
 | st    | status                                      |
 | sts   | status --short --branch                     |
 | sth   | stash                                       |
+| sthc  | stash clear                                 |
 | sthd  | stash drop                                  |
 | sthl  | stash list                                  |
 | stho  | stash pop                                   |
