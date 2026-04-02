@@ -83,7 +83,7 @@ chmod +x git-aliases.sh
 | rt    | remote                                      |
 | rv    | revert                                      |
 | scb   | branch --show-current                       |
-| sh    | show                                        |
+| sh    | show --patch                                |
 | st    | status                                      |
 | sts   | status --short --branch                     |
 | sth   | stash                                       |
