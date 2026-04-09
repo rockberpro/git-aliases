@@ -1,104 +1,248 @@
 #!/bin/bash
 
-# --- Configuration ---
-ALIAS_WIDTH=5     # Alias column width
-CMD_WIDTH=38      # Command column width
-NUM_COLS=1        # Number of side-by-side columns (1 or 2)
-COL_GAP="|"       # Gap between columns
+# =========================
+# Configurações
+# =========================
+ALIAS_WIDTH=6
+CMD_WIDTH=38
+NUM_COLS=1
+USE_COLOR=true
 
-# --- Aliases: "alias|full command" ---
-# Attempt to load aliases from `git config` (global/local).
-
-ALIASES=()
-if command -v git >/dev/null 2>&1; then
-  while IFS= read -r line; do
-    [[ -z "$line" ]] && continue
-    # format: "alias.name command..." — split the first token (key)
-    name="${line%% *}"
-    cmd="${line#* }"
-    # remove 'alias.' prefix from the key
-    name="${name#alias.}"
-    # add in the format expected by the existing logic
-    ALIASES+=("${name}|${cmd}")
-  done < <(git config --get-regexp '^alias\.' 2>/dev/null || true)
+# =========================
+# Cores ANSI
+# =========================
+if $USE_COLOR && [ -t 1 ]; then
+  C_RESET='\033[0m'
+  C_DIM='\033[2m'
+  C_TITLE='\033[1;35m'
+  C_GROUP='\033[1;34m'
+  C_ALIAS='\033[32m'
+  C_BORDER='\033[2;37m'
+else
+  C_RESET=''
+  C_DIM=''
+  C_TITLE=''
+  C_GROUP=''
+  C_ALIAS=''
+  C_BORDER=''
 fi
 
-# Require `git` to list aliases dynamically. If `git` is not present,
-# the script exits with an error because listing aliases without git makes no sense.
-if ! command -v git >/dev/null 2>&1; then
-  printf 'Error: git command not found. This script requires git to list aliases.\n' >&2
+# =========================
+# Caracteres de borda
+# =========================
+TL='╔' # Top Left
+TR='╗' # Top Right
+BL='╚' # Bottom Left
+BR='╝' # Bottom Right
+ML='╠' # Middle Left
+MR='╣' # Middle Right
+MT='╦' # Middle Top
+MB='╩' # Middle Bottom
+H='═'  # Horizontal
+V='║'  # Vertical
+VI='│' # Vertical Inside
+
+# =========================
+# Funções utilitárias
+# =========================
+b() {
+  printf "%b%s%b" "$C_BORDER" "$1" "$C_RESET"
+}
+
+repeat_char() {
+  local char="$1"
+  local count="$2"
+  local i
+  local result=""
+
+  for (( i = 0; i < count; i++ )); do
+    result+="$char"
+  done
+
+  printf '%s' "$result"
+}
+
+hbar() {
+  local left="$1"
+  local middle="$2"
+  local right="$3"
+  shift 3
+
+  printf "%b%s%b" "$C_BORDER" "$left" "$C_RESET"
+
+  local first=1
+  local width
+
+  for width in "$@"; do
+    if [[ $first -eq 0 ]]; then
+      printf "%b%s%b" "$C_BORDER" "$middle" "$C_RESET"
+    fi
+
+    printf "%b%s%b" "$C_BORDER" "$(repeat_char "$H" "$width")" "$C_RESET"
+    first=0
+  done
+
+  printf "%b%s%b\n" "$C_BORDER" "$right" "$C_RESET"
+}
+
+# =========================
+# Verificação de dependência
+# =========================
+if ! command -v git &>/dev/null; then
+  echo "Error: git not found." >&2
   exit 1
 fi
 
-# If git exists but no aliases were found, notify and exit.
+# =========================
+# Leitura dos aliases
+# =========================
+ALIASES=()
+
+while IFS= read -r line; do
+  [[ -z "$line" ]] && continue
+
+  name="${line%% *}"
+  cmd="${line#* }"
+  name="${name#alias.}"
+
+  ALIASES+=("${name}|${cmd}")
+done < <(git config --get-regexp '^alias\.' 2>/dev/null || true)
+
 if (( ${#ALIASES[@]} == 0 )); then
-  printf 'No git aliases configured (git config returned no aliases).\n'
+  echo "No git aliases configured."
   exit 0
 fi
 
-# --- Grouping by initial letter ---
-unset GROUPS
-declare -A GROUPS
-declare -a ORDERED_LETTERS=()
+# =========================
+# Agrupamento por letra
+# =========================
+declare -A ALIAS_GROUPS
+declare -a ORDERED_LETTERS
 
 for entry in "${ALIASES[@]}"; do
   alias_name="${entry%%|*}"
-  cmd="${entry#*|}"
-  letter="${alias_name:0:1}"
-  letter="${letter^^}"
-  if [[ -z "${GROUPS[$letter]+set}" ]]; then
+  command="${entry#*|}"
+
+  letter=$(printf '%s' "${alias_name:0:1}" | tr '[:lower:]' '[:upper:]')
+
+  if [[ -z "${ALIAS_GROUPS[$letter]+set}" ]]; then
     ORDERED_LETTERS+=("$letter")
-    GROUPS[$letter]=""
+    ALIAS_GROUPS[$letter]=""
   fi
-  GROUPS[$letter]+="${alias_name}|${cmd}"$'\n'
+
+  ALIAS_GROUPS[$letter]+="${alias_name}|${command}"$'\n'
 done
 
-IFS=$'\n' sorted_letters=($(printf '%s\n' "${ORDERED_LETTERS[@]}" | sort -u))
+IFS=$'\n'
+SORTED_LETTERS=($(printf '%s\n' "${ORDERED_LETTERS[@]}" | sort -u))
 unset IFS
 
-# --- Build output lines (100% ASCII) ---
-# Each line will have exactly COL_WIDTH bytes/chars (no unicode)
-# Format:  "  alias | command..."
-# Header: "-- A ---...---"
+# =========================
+# Layout
+# =========================
+INNER_W=$((1 + ALIAS_WIDTH + 3 + CMD_WIDTH + 1))
 
-COL_WIDTH=$(( 2 + ALIAS_WIDTH + 3 + CMD_WIDTH ))  # "  alias | comando"
-
-OUTPUT_LINES=()
-
-for letter in "${sorted_letters[@]}"; do
-  # ASCII header: "-- A ---------"
-  prefix="-- ${letter} "
-  remaining=$(( COL_WIDTH - ${#prefix} ))
-  header="${prefix}$(printf -- '-%.0s' $(seq 1 $remaining))"
-  OUTPUT_LINES+=("$header")
-
-  while IFS='|' read -r a c; do
-    [[ -z "$a" ]] && continue
-    # Truncate if needed
-    max_c=$(( CMD_WIDTH ))
-    if (( ${#c} > max_c )); then c="${c:0:$(( max_c - 1 ))}~"; fi
-    line="$(printf "  %-${ALIAS_WIDTH}s | %-${CMD_WIDTH}s" "$a" "$c")"
-    OUTPUT_LINES+=("$line")
-  done <<< "${GROUPS[$letter]}"
-
-  OUTPUT_LINES+=("$(printf '%*s' "$COL_WIDTH" '')")  # blank line (spaces)
+WIDTHS=()
+for (( i = 0; i < NUM_COLS; i++ )); do
+  WIDTHS+=("$INNER_W")
 done
-# --- Printing (N columns) ---
-total=${#OUTPUT_LINES[@]}
-gap="$COL_GAP"
-# Lines per column
+
+# =========================
+# Segmentação
+# =========================
+SEGMENTS=()
+
+for letter in "${SORTED_LETTERS[@]}"; do
+  SEGMENTS+=("HDR:${letter}")
+
+  while IFS= read -r row; do
+    [[ -z "$row" ]] && continue
+    SEGMENTS+=("ROW:${row}")
+  done <<< "${ALIAS_GROUPS[$letter]}"
+done
+
+total=${#SEGMENTS[@]}
 chunk=$(( (total + NUM_COLS - 1) / NUM_COLS ))
 
+while (( ${#SEGMENTS[@]} < chunk * NUM_COLS )); do
+  SEGMENTS+=("")
+done
+
+# =========================
+# Renderização de célula
+# =========================
+print_cell() {
+  local segment="$1"
+  local type="${segment%%:*}"
+  local value="${segment#*:}"
+
+  if [[ -z "$segment" ]]; then
+    printf "%b%s%b%-${INNER_W}s" "$C_BORDER" "$V" "$C_RESET" ""
+
+  elif [[ "$type" == "HDR" ]]; then
+    local label="── ${value} ──"
+    local pad=$(( INNER_W - 2 - ${#label} ))
+
+    printf "%b%s%b %b%s%b%*s " \
+      "$C_BORDER" "$V" "$C_RESET" \
+      "$C_GROUP" "$label" "$C_RESET" \
+      "$pad" ""
+
+  elif [[ "$type" == "ROW" ]]; then
+    local alias_name="${value%%|*}"
+    local command="${value#*|}"
+
+    if (( ${#command} > CMD_WIDTH )); then
+      command="${command:0:$(( CMD_WIDTH - 1 ))}~"
+    fi
+
+    printf "%b%s%b %b%-${ALIAS_WIDTH}s%b %b%s%b %-${CMD_WIDTH}s " \
+      "$C_BORDER" "$V" "$C_RESET" \
+      "$C_ALIAS" "$alias_name" "$C_RESET" \
+      "$C_BORDER" "$VI" "$C_RESET" \
+      "$command"
+  fi
+}
+
+# =========================
+# Título
+# =========================
+TITLE=" Git Aliases "
+TOTAL_W=$(( NUM_COLS * INNER_W + NUM_COLS - 1 ))
+
+LEFT_PAD=$(( (TOTAL_W - ${#TITLE}) / 2 ))
+RIGHT_PAD=$(( TOTAL_W - LEFT_PAD - ${#TITLE} ))
+
+b "$TL"
+b "$(repeat_char "$H" "$TOTAL_W")"
+b "$TR"
+echo
+
+b "$V"
+printf "%*s%b%s%b%*s" \
+  "$LEFT_PAD" "" \
+  "$C_TITLE" "$TITLE" "$C_RESET" \
+  "$RIGHT_PAD" ""
+b "$V"
+echo
+
+hbar "$ML" "$MT" "$MR" "${WIDTHS[@]}"
+
+# =========================
+# Linhas
+# =========================
 for (( i = 0; i < chunk; i++ )); do
-  row=""
   for (( col = 0; col < NUM_COLS; col++ )); do
     idx=$(( col * chunk + i ))
-    cell="${OUTPUT_LINES[$idx]:-}"
-    if (( col < NUM_COLS - 1 )); then
-      row+="$(printf '%-*s' "$COL_WIDTH" "$cell")${gap}"
-    else
-      row+="$cell"
-    fi
+    segment="${SEGMENTS[$idx]}"
+    print_cell "$segment"
   done
-  printf '%s\n' "$row"
+
+  b "$V"
+  echo
 done
+
+hbar "$BL" "$MB" "$BR" "${WIDTHS[@]}"
+
+printf "%b  %d aliases across %d groups%b\n" \
+  "$C_DIM" "${#ALIASES[@]}" "${#SORTED_LETTERS[@]}" "$C_RESET"
