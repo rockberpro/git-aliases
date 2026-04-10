@@ -1,6 +1,10 @@
-# git-lga — Logical Git Aliases
+<p align="center">
+  <img src="resources/img/logo.png" alt="git-lga" width="200">
+</p>
 
-The name is the demo — `git lga` is itself an alias. A prefix-based shorthand system that turns Git commands into muscle memory.
+<h1 align="center">Logical Git Aliases</h1>
+
+<p align="center">A prefix-based shorthand system that turns Git commands into muscle memory.</p>
 
 Two-letter **prefix** picks the command. One-letter **suffix** is the first letter of the flag.
 
@@ -80,25 +84,25 @@ git config --global include.path ~/.git-lga.gitconfig
 
 Every alias follows the same rule: **prefix** (2–3 letters from the command name) + **suffix** (first letter of the key flag).
 
-| Prefix | Command | Variants |
-| ------ | ------- | -------- |
-| `ad` | add | `ada` all, `adu` update |
-| `br` | branch | `brd` delete, `brl` list |
-| `cm` | commit | `cmm` message, `cma` amend, `cmn` no-edit, `cmf` fixup |
-| `ck` | checkout | — |
-| `sw` | switch | `swc` create |
-| `rs` | restore | `rsa` all, `rss` staged |
-| `df` | diff | `dfc` cached, `dfw` whitespace, `dfwd` word-diff |
-| `ft` | fetch | `ftp` prune |
-| `pl` | pull | `plh` HEAD |
-| `ps` | push | `psf` force, `psh` HEAD, `pshf` HEAD+force |
-| `lg` | log | `lgp` patch, `lgo` oneline graph, `lgh` HEAD |
-| `sh` | show | — |
-| `mg` | merge | `mga` abort, `mgc` continue, `mgs` squash |
-| `rb` | rebase | `rba` abort, `rbc` continue, `rbi` interactive, `rbo` onto |
-| `sth` | stash | `stha` apply, `sthd` drop, `sthl` list, `stho` pop, `sthp` push, `sthc` clear, `sths` show |
-| `st` | status | `sts` short |
-| `chp` | cherry-pick | `cha` abort, `chc` continue |
+| Prefix | Command     | Variants                                                                                   |
+| ------ | ----------- | ------------------------------------------------------------------------------------------ |
+| `ad`   | add         | `ada` all, `adu` update                                                                    |
+| `br`   | branch      | `brd` delete, `brl` list                                                                   |
+| `cm`   | commit      | `cmm` message, `cma` amend, `cmn` no-edit, `cmf` fixup                                     |
+| `ck`   | checkout    | —                                                                                          |
+| `sw`   | switch      | `swc` create                                                                               |
+| `rs`   | restore     | `rsa` all, `rss` staged                                                                    |
+| `df`   | diff        | `dfc` cached, `dfw` whitespace, `dfwd` word-diff                                           |
+| `ft`   | fetch       | `ftp` prune                                                                                |
+| `pl`   | pull        | `plh` HEAD                                                                                 |
+| `ps`   | push        | `psf` force, `psh` HEAD, `pshf` HEAD+force                                                 |
+| `lg`   | log         | `lgp` patch, `lgo` oneline graph, `lgh` HEAD                                               |
+| `sh`   | show        | —                                                                                          |
+| `mg`   | merge       | `mga` abort, `mgc` continue, `mgs` squash                                                  |
+| `rb`   | rebase      | `rba` abort, `rbc` continue, `rbi` interactive, `rbo` onto                                 |
+| `sth`  | stash       | `stha` apply, `sthd` drop, `sthl` list, `stho` pop, `sthp` push, `sthc` clear, `sths` show |
+| `st`   | status      | `sts` short                                                                                |
+| `chp`  | cherry-pick | `cha` abort, `chc` continue                                                                |
 
 **Other aliases:** `bl` blame, `cfg` config, `cfgl` config --list, `cln` clean, `clf` clean --force, `clo` clone, `ds` describe, `gp` grep, `in` init, `rt` remote, `rv` revert, `rst` reset, `tg` tag, `scb` show-current-branch.
 
@@ -108,7 +112,7 @@ Every alias follows the same rule: **prefix** (2–3 letters from the command na
 
 There are hundreds of git alias collections. Here's what makes this one different:
 
-- **Learnable, not memorizable.** The prefix+suffix rule means you can *guess* aliases you've never seen. Most collections are arbitrary shorthand you have to look up every time.
+- **Learnable, not memorizable.** The prefix+suffix rule means you can _guess_ aliases you've never seen. Most collections are arbitrary shorthand you have to look up every time.
 - **`git lga` built-in reference.** Forget an alias? One command shows them all, grouped and formatted, right in your terminal.
 - **Non-invasive.** Installs as a gitconfig `[include]` — your existing config stays untouched. Remove it with one line.
 - **No dependencies.** Pure gitconfig + one shell script. No plugin managers, no frameworks, no oh-my-zsh required.
