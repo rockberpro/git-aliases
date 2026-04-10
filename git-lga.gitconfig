@@ -22,7 +22,7 @@
     br  = branch
     brd = branch --delete
     brl = branch --list
-    scb = branch --show-current
+    brs = branch --show-current
 
     # --- COMMIT (cm) ---
     cm  = commit
