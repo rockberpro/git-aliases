@@ -1,15 +1,15 @@
 # ==============================================================================
 # LGA — Logical Git Aliases
-# https://github.com/rockberpro/git-aliases
+# https://github.com/rockberpro/git-lga
 #
 # Pattern: [prefix (2-3 chars)] + [suffix (first letter of the flag)]
 # Example: cm = commit, cmm = commit --message, cma = commit --amend
 #
 # Install:
-#   curl -sL https://raw.githubusercontent.com/rockberpro/git-aliases/main/setup.sh | bash
+#   curl -sL https://raw.githubusercontent.com/rockberpro/git-lga/main/setup.sh | bash
 #
 # Manual install:
-#   git config --global include.path ~/.git-aliases.gitconfig
+#   git config --global include.path ~/.git-lga.gitconfig
 # ==============================================================================
 
 [alias]
@@ -104,4 +104,4 @@
     rv   = revert
     tg   = tag
     rst  = reset
-    sga  = !~/.git-aliases-help.sh
+    lga  = !~/.git-lga-help.sh

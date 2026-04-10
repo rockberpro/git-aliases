@@ -20,7 +20,7 @@ git psh → push origin HEAD      git mga → merge --abort
 
 That's it. `rbc`? **r**e**b**ase --**c**ontinue. `psf`? **p**u**s**h --**f**orce. `dfc`? **d**i**f**f --**c**ached.
 
-Run `git sga` to see every alias right in your terminal:
+Run `git lga` to see every alias right in your terminal:
 
 ```
 ╔═════════════════════════════════════════════════╗
@@ -61,19 +61,19 @@ Run `git sga` to see every alias right in your terminal:
 **One-line install:**
 
 ```bash
-curl -sL https://raw.githubusercontent.com/rockberpro/git-aliases/main/setup.sh | bash
+curl -sL https://raw.githubusercontent.com/rockberpro/git-lga/main/setup.sh | bash
 ```
 
 **Manual install:**
 
 ```bash
-curl -sL https://raw.githubusercontent.com/rockberpro/git-aliases/main/git-aliases.gitconfig \
-  -o ~/.git-aliases.gitconfig
+curl -sL https://raw.githubusercontent.com/rockberpro/git-lga/main/git-lga.gitconfig \
+  -o ~/.git-lga.gitconfig
 
-curl -sL https://raw.githubusercontent.com/rockberpro/git-aliases/main/git-aliases-help.sh \
-  -o ~/.git-aliases-help.sh && chmod +x ~/.git-aliases-help.sh
+curl -sL https://raw.githubusercontent.com/rockberpro/git-lga/main/git-lga-help.sh \
+  -o ~/.git-lga-help.sh && chmod +x ~/.git-lga-help.sh
 
-git config --global include.path ~/.git-aliases.gitconfig
+git config --global include.path ~/.git-lga.gitconfig
 ```
 
 ## The Pattern
@@ -102,24 +102,24 @@ Every alias follows the same rule: **prefix** (2–3 letters from the command na
 
 **Other aliases:** `bl` blame, `cfg` config, `cfgl` config --list, `cln` clean, `clf` clean --force, `clo` clone, `ds` describe, `gp` grep, `in` init, `rt` remote, `rv` revert, `rst` reset, `tg` tag, `scb` show-current-branch.
 
-**Built-in help:** `sga` — show all aliases in a formatted table.
+**Built-in help:** `lga` — show all aliases in a formatted table.
 
 ## Why This One?
 
 There are hundreds of git alias collections. Here's what makes this one different:
 
 - **Learnable, not memorizable.** The prefix+suffix rule means you can *guess* aliases you've never seen. Most collections are arbitrary shorthand you have to look up every time.
-- **`git sga` built-in reference.** Forget an alias? One command shows them all, grouped and formatted, right in your terminal.
+- **`git lga` built-in reference.** Forget an alias? One command shows them all, grouped and formatted, right in your terminal.
 - **Non-invasive.** Installs as a gitconfig `[include]` — your existing config stays untouched. Remove it with one line.
 - **No dependencies.** Pure gitconfig + one shell script. No plugin managers, no frameworks, no oh-my-zsh required.
 
 ## Uninstall
 
 ```bash
-git config --global --unset include.path ~/.git-aliases.gitconfig
-rm ~/.git-aliases.gitconfig ~/.git-aliases-help.sh
+git config --global --unset include.path ~/.git-lga.gitconfig
+rm ~/.git-lga.gitconfig ~/.git-lga-help.sh
 ```
 
 ---
 
-[setup.sh](setup.sh) · [git-aliases.gitconfig](git-aliases.gitconfig) · [git-aliases-help.sh](git-aliases-help.sh)
+[setup.sh](setup.sh) · [git-lga.gitconfig](git-lga.gitconfig) · [git-lga-help.sh](git-lga-help.sh)
