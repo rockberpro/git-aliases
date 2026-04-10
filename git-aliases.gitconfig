@@ -1,16 +1,15 @@
 # ==============================================================================
-# LOGICAL GIT ALIASES (LGA)
-# A consistent, prefix-based dialect for high-productivity Git usage.
-# Logic: [Command Prefix (2 chars)] + [Action Suffix (1-2 chars)]
+# LGA — Logical Git Aliases
+# https://github.com/rockberpro/git-aliases
 #
-# Install via script:
+# Pattern: [prefix (2-3 chars)] + [suffix (first letter of the flag)]
+# Example: cm = commit, cmm = commit --message, cma = commit --amend
+#
+# Install:
 #   curl -sL https://raw.githubusercontent.com/rockberpro/git-aliases/main/setup.sh | bash
 #
-# Install via gitconfig include:
-#   git config --global include.path /path/to/git-aliases.gitconfig
-#   or add manually to ~/.gitconfig:
-#   [include]
-#       path = /path/to/git-aliases.gitconfig
+# Manual install:
+#   git config --global include.path ~/.git-aliases.gitconfig
 # ==============================================================================
 
 [alias]
