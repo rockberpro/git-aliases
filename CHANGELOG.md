@@ -37,7 +37,7 @@
 
 - `git sga` help command to list all aliases in the terminal
 - `setup.sh` one-line installer with automatic gitconfig include
-- New aliases: `scb`, `dfwd`, `cmf`, `cmn`, `rbo`, `sthp`, `stha`, `sths`
+- New aliases: `scb`, `dfi`, `cmf`, `cmn`, `rbo`, `sthp`, `stha`, `sths`
 
 ### Changed
 

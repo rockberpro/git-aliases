@@ -14,7 +14,7 @@ git sts → status --short        git cmm → commit --message
                                 git cma → commit --amend
 git df  → diff
 git dfc → diff --cached         git rb  → rebase
-git dfw → diff --ignore-space   git rba → rebase --abort
+git dfi → diff --ignore-space   git rba → rebase --abort
                                 git rbi → rebase --interactive
 git ps  → push
 git psf → push --force          git mg  → merge
@@ -100,7 +100,7 @@ Every alias follows the same rule: **prefix** (2–3 letters from the command na
 | `ck`   | checkout    | —                                                                                          |
 | `sw`   | switch      | `swc` create                                                                               |
 | `rs`   | restore     | `rsa` all, `rss` staged                                                                    |
-| `df`   | diff        | `dfc` cached, `dfw` whitespace, `dfwd` word-diff                                           |
+| `df`   | diff        | `dfc` cached, `dfi` ignore-space, `dfw` word-diff                                          |
 | `ft`   | fetch       | `ftp` prune                                                                                |
 | `pl`   | pull        | `plh` HEAD                                                                                 |
 | `ps`   | push        | `psf` force, `psh` HEAD, `pshf` HEAD+force                                                 |

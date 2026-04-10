@@ -42,8 +42,8 @@
     # --- DIFF (df) ---
     df   = diff
     dfc  = diff --cached
-    dfw  = diff --ignore-all-space
-    dfwd = diff --word-diff
+    dfi  = diff --ignore-all-space
+    dfw  = diff --word-diff
 
     # --- FETCH / PULL / PUSH ---
     ft   = fetch
