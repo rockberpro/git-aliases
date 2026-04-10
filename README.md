@@ -68,10 +68,10 @@ Run `git lga` to see every alias right in your terminal:
 curl -sL https://raw.githubusercontent.com/rockberpro/git-lga/main/setup.sh | bash
 ```
 
-**Windows (cmd):**
+**Windows (PowerShell):**
 
-```cmd
-curl -sL https://raw.githubusercontent.com/rockberpro/git-lga/main/setup.cmd -o "%TEMP%\setup.cmd" && "%TEMP%\setup.cmd"
+```powershell
+irm https://raw.githubusercontent.com/rockberpro/git-lga/main/setup.ps1 | iex
 ```
 
 **Manual install:**
@@ -132,4 +132,4 @@ rm ~/.git-lga.gitconfig ~/.git-lga-help.sh
 
 ---
 
-[setup.sh](setup.sh) · [setup.cmd](setup.cmd) · [git-lga.gitconfig](git-lga.gitconfig) · [git-lga-help.sh](git-lga-help.sh)
+[setup.sh](setup.sh) · [setup.ps1](setup.ps1) · [git-lga.gitconfig](git-lga.gitconfig) · [git-lga-help.sh](git-lga-help.sh)
