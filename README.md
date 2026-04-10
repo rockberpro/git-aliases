@@ -74,6 +74,8 @@ curl -sL https://raw.githubusercontent.com/rockberpro/git-lga/main/setup.sh | ba
 irm https://raw.githubusercontent.com/rockberpro/git-lga/main/setup.ps1 | iex
 ```
 
+The setup script only adds an `[include]` entry to `~/.gitconfig` and copies two files to `~/`. You can read the full source ([setup.sh](setup.sh), [setup.ps1](setup.ps1)) before running it, or use the manual install below.
+
 **Manual install:**
 
 ```bash
