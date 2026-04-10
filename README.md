@@ -110,7 +110,7 @@ Every alias follows the same rule: **prefix** (2–3 letters from the command na
 | `st`   | status      | `sts` short                                                                                |
 | `chp`  | cherry-pick | `cha` abort, `chc` continue                                                                |
 
-**Other aliases:** `bl` blame, `cfg` config, `cfgl` config --list, `cln` clean, `clf` clean --force, `clo` clone, `ds` describe, `gp` grep, `in` init, `rt` remote, `rv` revert, `rst` reset, `tg` tag, `scb` show-current-branch.
+**Other aliases:** `bl` blame, `cfg` config, `cfgl` config --list, `cln` clean, `clf` clean --force, `clo` clone, `ds` describe, `gp` grep, `in` init, `rt` remote, `rv` revert, `rst` reset, `tg` tag, `brs` show-current-branch.
 
 **Built-in help:** `lga` — show all aliases in a formatted table.
 

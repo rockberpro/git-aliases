@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.1] - 2026-04-09
+
+### Changed
+
+- Renamed `scb` alias to `brs` (branch --show-current) to follow the `br` prefix pattern
+
 ## [0.1.0] - 2026-04-09
 
 ### Added
