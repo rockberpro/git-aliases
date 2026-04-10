@@ -1,6 +1,6 @@
-# LGA — Logical Git Aliases
+# git-lga — Logical Git Aliases
 
-Learn the pattern, know every alias. A prefix-based shorthand system for Git.
+The name is the demo — `git lga` is itself an alias. A prefix-based shorthand system that turns Git commands into muscle memory.
 
 Two-letter **prefix** picks the command. One-letter **suffix** is the first letter of the flag.
 
