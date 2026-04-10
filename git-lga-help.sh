@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # =========================
-# Configurações
+# Configuration
 # =========================
 ALIAS_WIDTH=6
 CMD_WIDTH=38
@@ -9,7 +9,7 @@ NUM_COLS=1
 USE_COLOR=true
 
 # =========================
-# Cores ANSI
+# ANSI Colors
 # =========================
 if $USE_COLOR && [ -t 1 ]; then
   C_RESET='\033[0m'
@@ -28,7 +28,7 @@ else
 fi
 
 # =========================
-# Caracteres de borda
+# Border Characters
 # =========================
 TL='╔' # Top Left
 TR='╗' # Top Right
@@ -43,7 +43,7 @@ V='║'  # Vertical
 VI='│' # Vertical Inside
 
 # =========================
-# Funções utilitárias
+# Utility Functions
 # =========================
 b() {
   printf "%b%s%b" "$C_BORDER" "$1" "$C_RESET"
@@ -86,7 +86,7 @@ hbar() {
 }
 
 # =========================
-# Verificação de dependência
+# Dependency Check
 # =========================
 if ! command -v git &>/dev/null; then
   echo "Error: git not found." >&2
@@ -94,7 +94,7 @@ if ! command -v git &>/dev/null; then
 fi
 
 # =========================
-# Leitura dos aliases
+# Read Aliases
 # =========================
 ALIASES=()
 
@@ -114,7 +114,7 @@ if (( ${#ALIASES[@]} == 0 )); then
 fi
 
 # =========================
-# Agrupamento por letra
+# Group by Letter
 # =========================
 declare -A ALIAS_GROUPS
 declare -a ORDERED_LETTERS
@@ -148,7 +148,7 @@ for (( i = 0; i < NUM_COLS; i++ )); do
 done
 
 # =========================
-# Segmentação
+# Segmentation
 # =========================
 SEGMENTS=()
 
@@ -169,7 +169,7 @@ while (( ${#SEGMENTS[@]} < chunk * NUM_COLS )); do
 done
 
 # =========================
-# Renderização de célula
+# Cell Rendering
 # =========================
 print_cell() {
   local segment="$1"
@@ -205,7 +205,7 @@ print_cell() {
 }
 
 # =========================
-# Título
+# Title
 # =========================
 TITLE=" Git Aliases "
 TOTAL_W=$(( NUM_COLS * INNER_W + NUM_COLS - 1 ))
@@ -229,7 +229,7 @@ echo
 hbar "$ML" "$MT" "$MR" "${WIDTHS[@]}"
 
 # =========================
-# Linhas
+# Rows
 # =========================
 for (( i = 0; i < chunk; i++ )); do
   for (( col = 0; col < NUM_COLS; col++ )); do
