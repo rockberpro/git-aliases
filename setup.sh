@@ -8,6 +8,9 @@ INSTALL_PATH="$HOME/.git-lga.gitconfig"
 HELP_URL="https://raw.githubusercontent.com/rockberpro/git-lga/main/git-lga-help.sh"
 HELP_PATH="$HOME/.git-lga-help.sh"
 
+BASHRC_URL="https://raw.githubusercontent.com/rockberpro/git-lga/main/git-lga.bashrc"
+BASHRC_PATH="$HOME/.git-lga.bashrc"
+
 curl -sL "$GITCONFIG_URL" -o "$INSTALL_PATH"
 
 if ! git config --global --get-all include.path | grep -qF "$INSTALL_PATH"; then
@@ -17,5 +20,12 @@ fi
 curl -sL "$HELP_URL" -o "$HELP_PATH"
 chmod +x "$HELP_PATH"
 
+curl -sL "$BASHRC_URL" -o "$BASHRC_PATH"
+
+if ! grep -qF "$BASHRC_PATH" "$HOME/.bashrc"; then
+    echo "source $BASHRC_PATH" >> "$HOME/.bashrc"
+fi
+
 echo "git-lga installed: $INSTALL_PATH"
 echo "git-lga help installed: $HELP_PATH"
+echo "git-lga bashrc installed: $BASHRC_PATH"
